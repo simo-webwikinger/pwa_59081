@@ -2,14 +2,12 @@
   <NuxtLayout name="default" :hasHero="true">
     <template v-slot:hero>
       <div class="absolute w-full max-w-7xl h-full mask-header-image lg:pr-32 xl:w-3/4">
-        <NuxtImg
-          src="/images/hero_lo_angel.avif"
+        <img src="/images/hero_lo_angel.avif"
           sizes="(min-width: 1280px) 1200px, (min-width: 576px) 100vw, 575px"
           alt="hero image"
           width="400"
           height="400"
-          class="min-w-full min-h-full object-cover object-[75%_0%] lg:object-contain lg:object-right-bottom"
-        />
+          class="min-w-full min-h-full object-cover object-[75%_0%] lg:object-contain lg:object-right-bottom"/>
       </div>
       <h1
         class="absolute bottom-20 right-4 text-5xl font-black text-white uppercase after:block after:w-[2em] after:h-[0.1em] after:mt-4 after:ml-1.5 after:bg-secondary-500 sm:text-7xl md:text-8xl lg:bottom-32 lg:text-9xl lg:right-8 3xl:bottom-44 3xl:text-10xl"
