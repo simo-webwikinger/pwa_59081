@@ -40,7 +40,7 @@
                 >
                   <img
                     class="relative max-w-full max-h-full z-10 transform skew-p-10"
-                    src="/images/casino-logo.avif"
+                    src="/images/Casino-logo.avif"
                     alt="Casino Kiel Logo"
                   /></div
               ></a>
