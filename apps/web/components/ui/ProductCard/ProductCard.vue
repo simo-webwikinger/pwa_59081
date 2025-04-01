@@ -3,7 +3,7 @@
     class="border border-neutral-200 p-1 rounded-md hover:shadow-lg flex flex-col text-white"
     data-testid="product-card"
   >
-    <div class="relative overflow-hidden bg-white">
+    <div class="relative overflow-hidden bg-transparent">
       <UiBadges
         :class="['absolute', isFromWishlist ? 'mx-2' : 'm-2']"
         :product="product"

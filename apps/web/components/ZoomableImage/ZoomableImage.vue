@@ -1,7 +1,7 @@
 <template>
   <div
     ref="containerReference"
-    class="w-full h-full relative flex items-center justify-center snap-center snap-always basis-full shrink-0 grow gallery-image bg-white"
+    class="w-full h-full relative flex items-center justify-center snap-center snap-always basis-full shrink-0 grow gallery-image bg-transparent"
   >
     <div
       v-if="showZoomHint && isMobile"

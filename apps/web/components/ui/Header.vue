@@ -1,7 +1,7 @@
 <template>
   <MegaMenu :categories="categoryTree" :hasHero="hasHero">
     <template v-slot:nav>
-      <nav class="xl:relative flex md:gap-8">
+      <nav class="xl:relative flex md:gap-10">
         <div
           v-if="viewport.isGreaterOrEquals('md')"
           class="nav-container fixed inset-0 py-24 sm:py-32 transform translate-x-full overflow-y-auto xl:relative xl:py-0 xl:transform-none xl:transition-none xl:bg-transparent xl:overflow-y-visible"
@@ -25,39 +25,44 @@
                 >
                   FANSHOP
                 </span>
-                <!-- Category Tree Dropdown -->
+                <!-- category -->
                 <ul
-                  class="subnav-list flex flex-col items-center text-base bg-pitch-black bg-opacity-40 overflow-hidden transition-all xl:h-auto xl:items-start xl:hidden xl:absolute xl:top-full xl:left-4 xl:pt-1 xl:text-base xl:bg-transparent xl:overflow-visible xl:transition-none xl:group-hover:flex xl:group-focus:flex"
+                  class="subnav-list mt-0 flex flex-col items-center text-base bg-transparent overflow-hidden transition-all xl:h-auto xl:items-start xl:hidden xl:absolute xl:top-full xl:left-4 xl:pt-3 xl:text-base xl:overflow-visible xl:transition-none xl:group-hover:flex xl:group-focus:flex"
                 >
-                  <li
-                    v-for="category in categoryTree"
-                    :key="category.id"
-                    class="relative group pt-2"
-                    @mouseenter="hoveredCategoryId = category.id"
-                    @mouseleave="hoveredCategoryId = null"
-                  >
-                    <NuxtLink
-                      :to="generateCategoryLink(category)"
-                      class="nav-list-link min-w-max inline-flex items-center uppercase font-bold relative py-4 xl:py-3 xl:pl-6 xl:pr-4 xl:after:block xl:after:absolute xl:after:top-0 xl:after:bottom-0 xl:after:-right-2 xl:after:w-4 xl:after:-skew-x-10 xl:text-left xl:w-min hover:text-secondary-500 xl:bg-white xl:text-primary-500 xl:after:bg-white xl:hover:bg-secondary-500 xl:hover:text-white xl:hover:after:bg-secondary-500"
+                  <div class="bg-white relative">
+                    <li
+                      v-for="category in categoryTree"
+                      :key="category.id"
+                      class="group"
+                      @mouseenter="hoveredCategoryId = category.id"
+                      @mouseleave="hoveredCategoryId = null"
                     >
-                      {{ categoryTreeGetters.getName(category) }}
-                    </NuxtLink>
-                    <!-- Render child categories -->
-                    <ul
-                      v-if="category.children && category.children.length > 0 && hoveredCategoryId === category.id"
-                      class="mt-1 py-2 text-left"
-                    >
-                      <li v-for="childCategory in category.children" :key="childCategory.id" class="pt-1">
-                        <NuxtLink
-                          :to="generateCategoryLink(childCategory)"
-                          class="nav-list-link text-white hover:text-secondary-500 uppercase font-bold text-sm"
-                        >
-                          <SfIconChevronRight />
-                          {{ categoryTreeGetters.getName(childCategory) }}
-                        </NuxtLink>
-                      </li>
-                    </ul>
-                  </li>
+                      <NuxtLink
+                        :to="generateCategoryLink(category)"
+                        class="nav-list-link inline-flex items-center uppercase font-bold relative py-4 xl:py-3 xl:pl-6 xl:pr-4 xl:text-left xl:w-min hover:text-secondary-500 xl:text-primary-500 xl:after:bg-white xl:hover:bg-secondary-500 xl:hover:text-white xl:hover:after:bg-secondary-500"
+                        style="width: 240px; display: inline-block"
+                      >
+                        {{ categoryTreeGetters.getName(category) }}
+                      </NuxtLink>
+                      <!-- Render child categories -->
+                      <div
+                        v-if="category.children && category.children.length > 0 && hoveredCategoryId === category.id"
+                        class="absolute left-full top-0 mt-0 py-2 text-left h-full bg-white min-w-[200px]"
+                      >
+                        <ul class="flex flex-col">
+                          <li v-for="childCategory in category.children" :key="childCategory.id" class="pt-1 px-4">
+                            <NuxtLink
+                              :to="generateCategoryLink(childCategory)"
+                              class="nav-list-link text-pitch-black hover:text-secondary-500 uppercase font-bold text-sm block"
+                            >
+                              <SfIconChevronRight />
+                              {{ categoryTreeGetters.getName(childCategory) }}
+                            </NuxtLink>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </div>
                 </ul>
               </div>
 
@@ -523,11 +528,3 @@ const generateCategoryLink = (category: CategoryTreeItem) => {
   return buildCategoryMenuLink(category, categoryTree.value);
 };
 </script>
-<style>
-.child-category-item .nav-list-link::before {
-  content: '|\_>';
-  display: inline-block; /* Ensures it respects spacing and width */
-  margin-right: 0.5em; /* Adjust as needed for spacing */
-  color: theme('colors.neutral.500');
-}
-</style>
