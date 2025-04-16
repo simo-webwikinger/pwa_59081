@@ -27,7 +27,7 @@
           :preload="priority || false"
           :width="getWidth()"
           :height="getHeight()"
-          class="object-contain rounded-md aspect-square w-full"
+          class="object-cover rounded-md aspect-square w-full"
           data-testid="image-slot"
         />
       </SfLink>

@@ -9,54 +9,65 @@
           <ul
             class="nav-list relative flex flex-col items-center gap-4 w-full text-2xl text-center xl:flex-row xl:gap-0 xl:-mx-4 xl:pt-0 xl:text-base"
           >
-            <li v-for="navlink in navLinks" :key="navlink.label" class="relative group nav-list-item w-full px-4">
-              <NuxtLink
-                v-if="navlink.label !== 'FANSHOP'"
-                :to="navlink.link"
-                :class="[
-                  'nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent hover:border-secondary-500 xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap',
-                  { '!border-secondary-500': route.path === navlink.link },
-                ]"
-                >{{ navlink.label }}</NuxtLink
-              >
-              <div v-else class="relative group nav-list-item w-full px-4">
-                <span
-                  class="nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap"
+            <!-- Displaying categories as main navigation items -->
+            <li v-for="category in categoryTree" :key="category.id" class="relative group nav-list-item w-full px-4">
+              <div class="relative">
+                <NuxtLink
+                  :to="generateCategoryLink(category)"
+                  :class="[
+                    'nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent hover:border-secondary-500 xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap',
+                    { '!border-secondary-500': route.path === generateCategoryLink(category) },
+                  ]"
+                  @mouseenter="hoveredCategoryId = category.id"
+                  @mouseleave="hoveredCategoryId = null"
                 >
-                  FANSHOP
-                </span>
-                <!-- category -->
+                  {{ categoryTreeGetters.getName(category) }}
+                </NuxtLink>
+
+                <!-- Dropdown for subcategories -->
                 <ul
-                  class="subnav-list mt-0 flex flex-col items-center text-base bg-transparent overflow-hidden transition-all xl:h-auto xl:items-start xl:hidden xl:absolute xl:top-full xl:left-4 xl:pt-3 xl:text-base xl:overflow-visible xl:transition-none xl:group-hover:flex xl:group-focus:flex"
+                  v-if="category.children && category.children.length > 0"
+                  class="subnav-list mt-0 flex flex-col items-center text-base bg-transparent overflow-hidden transition-all xl:h-auto xl:items-start xl:hidden xl:absolute xl:top-full xl:left-0 xl:pt-3 xl:text-base xl:overflow-visible xl:transition-none xl:group-hover:flex xl:group-focus:flex"
+                  @mouseenter="hoveredCategoryId = category.id"
+                  @mouseleave="hoveredCategoryId = null"
                 >
                   <div class="bg-white relative">
                     <li
-                      v-for="category in categoryTree"
-                      :key="category.id"
+                      v-for="childCategory in category.children"
+                      :key="childCategory.id"
                       class="group"
-                      @mouseenter="hoveredCategoryId = category.id"
-                      @mouseleave="hoveredCategoryId = null"
+                      @mouseenter="hoveredSubCategoryId = childCategory.id"
+                      @mouseleave="hoveredSubCategoryId = null"
                     >
                       <NuxtLink
-                        :to="generateCategoryLink(category)"
+                        :to="generateCategoryLink(childCategory)"
                         class="nav-list-link inline-flex items-center uppercase font-bold relative py-4 xl:py-3 xl:pl-6 xl:pr-4 xl:text-left xl:w-min hover:text-secondary-500 xl:text-primary-500 xl:after:bg-white xl:hover:bg-secondary-500 xl:hover:text-white xl:hover:after:bg-secondary-500"
                         style="width: 240px; display: inline-block"
                       >
-                        {{ categoryTreeGetters.getName(category) }}
+                        {{ categoryTreeGetters.getName(childCategory) }}
                       </NuxtLink>
-                      <!-- Render child categories -->
+
+                      <!-- Third level categories -->
                       <div
-                        v-if="category.children && category.children.length > 0 && hoveredCategoryId === category.id"
+                        v-if="
+                          childCategory.children &&
+                          childCategory.children.length > 0 &&
+                          hoveredSubCategoryId === childCategory.id
+                        "
                         class="absolute left-full top-0 mt-0 py-2 text-left h-full bg-white min-w-[200px]"
                       >
                         <ul class="flex flex-col">
-                          <li v-for="childCategory in category.children" :key="childCategory.id" class="pt-1 px-4">
+                          <li
+                            v-for="grandChildCategory in childCategory.children"
+                            :key="grandChildCategory.id"
+                            class="pt-1 px-4"
+                          >
                             <NuxtLink
-                              :to="generateCategoryLink(childCategory)"
+                              :to="generateCategoryLink(grandChildCategory)"
                               class="nav-list-link text-pitch-black hover:text-secondary-500 uppercase font-bold text-sm block"
                             >
                               <SfIconChevronRight />
-                              {{ categoryTreeGetters.getName(childCategory) }}
+                              {{ categoryTreeGetters.getName(grandChildCategory) }}
                             </NuxtLink>
                           </li>
                         </ul>
@@ -65,21 +76,20 @@
                   </div>
                 </ul>
               </div>
-
-              <!-- add sub links if exist -->
-              <ul
-                v-if="navlink.subLinks"
-                class="subnav-list flex flex-col items-center text-base bg-pitch-black bg-opacity-40 overflow-hidden transition-all xl:h-auto xl:items-start xl:hidden xl:absolute xl:top-full xl:left-4 xl:pt-1 xl:text-base xl:bg-transparent xl:overflow-visible xl:transition-none xl:group-hover:flex xl:group-focus:flex"
-              >
-                <li v-for="sublink in navlink.subLinks" :key="sublink.label" class="relative group pt-2">
-                  <NuxtLink
-                    :to="sublink.link"
-                    class="nav-list-link inline-flex items-center uppercase font-bold relative py-4 xl:py-3 xl:pl-6 xl:pr-4 xl:after:block xl:after:absolute xl:after:top-0 xl:after:bottom-0 xl:after:-right-2 xl:after:w-4 xl:after:-skew-x-10 xl:text-left xl:w-min hover:text-secondary-500 xl:bg-white xl:text-primary-500 xl:after:bg-white xl:hover:bg-secondary-500 xl:hover:text-white xl:hover:after:bg-secondary-500"
-                    >{{ sublink.label }}</NuxtLink
-                  >
-                </li>
-              </ul>
             </li>
+
+            <!-- Additional static navigation items if needed
+            <li class="relative group nav-list-item w-full px-4">
+              <NuxtLink
+                :to="localePath(paths.tickets)"
+                :class="[
+                  'nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent hover:border-secondary-500 xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap',
+                  { '!border-secondary-500': route.path === localePath(paths.tickets) },
+                ]"
+              >
+                TICKETS
+              </NuxtLink>
+            </li> -->
           </ul>
         </div>
 
@@ -198,6 +208,8 @@
         </UiButton>
       </nav>
     </template>
+
+    <!-- Mobile menu -->
     <div
       v-if="viewport.isLessThan('lg') && isOpen"
       class="fixed inset-0 bg-pitch-black bg-opacity-95 z-50 flex items-center justify-center flex-col overflow-scroll"
@@ -215,84 +227,68 @@
         <ul
           class="nav-list relative flex flex-col items-center gap-4 w-full text-2xl text-center xl:flex-row xl:gap-0 xl:-mx-4 xl:pt-0 xl:text-base"
         >
-          <li v-for="navlink in navLinks" :key="navlink.label" class="relative group nav-list-item w-full px-4">
-            <div @click="navlink.label !== 'FANSHOP' ? toggleSubMenu(navlink.label) : null">
+          <!-- Mobile categories navigation -->
+          <li v-for="category in categoryTree" :key="category.id" class="relative group nav-list-item w-full px-4">
+            <div @click="toggleSubMenu(category.id)">
               <NuxtLink
-                v-if="navlink.label !== 'FANSHOP'"
-                :to="navlink.link"
+                :to="generateCategoryLink(category)"
                 :class="[
                   'nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent hover:border-secondary-500 xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap',
-                  { '!border-secondary-500': route.path === navlink.link },
+                  { '!border-secondary-500': route.path === generateCategoryLink(category) },
                 ]"
-                >{{ navlink.label }}</NuxtLink
               >
-              <span
-                v-else
-                @click="toggleSubMenu(navlink.label)"
-                class="nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent hover:border-secondary-500 xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap cursor-pointer"
-              >
-                FANSHOP
-              </span>
+                {{ categoryTreeGetters.getName(category) }}
+                <SfIconExpandMore v-if="category.children && category.children.length > 0" class="ml-2" />
+              </NuxtLink>
             </div>
 
-            <!-- Category Tree Dropdown -->
+            <!-- Mobile subcategories -->
             <ul
-              v-if="navlink.label === 'FANSHOP' && openSubMenus['FANSHOP']"
+              v-if="category.children && category.children.length > 0 && openSubMenus[category.id]"
               class="subnav-list flex flex-col items-center mt-2"
             >
-              <li v-for="category in categoryTree" :key="category.id" class="py-2 relative">
+              <li v-for="childCategory in category.children" :key="childCategory.id" class="py-2 relative">
                 <div class="flex items-center justify-between">
                   <NuxtLink
-                    :to="generateCategoryLink(category)"
-                    class="nav-list-link hove:text-white text-secondary-500"
+                    :to="generateCategoryLink(childCategory)"
+                    class="nav-list-link text-white hover:text-secondary-500 uppercase font-bold"
                   >
-                    {{ categoryTreeGetters.getName(category) }}
+                    {{ categoryTreeGetters.getName(childCategory) }}
                   </NuxtLink>
 
                   <UiButton
-                    v-if="viewport.isLessThan('lg') && category.children && category.children.length > 0"
+                    v-if="childCategory.children && childCategory.children.length > 0"
                     variant="tertiary"
-                    @click="toggleCategory(category.id)"
+                    @click="toggleCategory(childCategory.id)"
                     class="ml-2 text-white"
                     aria-label="Toggle Subcategories"
                   >
                     <SfIconExpandMore size="sm" />
                   </UiButton>
                 </div>
-                <!-- Render child categories -->
+                <!-- Third level categories for mobile -->
                 <ul
                   v-if="
-                    category.children &&
-                    category.children.length > 0 &&
-                    (expandedCategories[category.id] || viewport.isGreaterOrEquals('lg'))
+                    childCategory.children && childCategory.children.length > 0 && expandedCategories[childCategory.id]
                   "
                   class="ml-4 mt-1"
                 >
-                  <li v-for="childCategory in category.children" :key="childCategory.id">
+                  <li v-for="grandChildCategory in childCategory.children" :key="grandChildCategory.id">
                     <NuxtLink
-                      :to="generateCategoryLink(childCategory)"
+                      :to="generateCategoryLink(grandChildCategory)"
                       class="nav-list-link text-white hover:text-secondary-500 uppercase font-bold text-sm"
                     >
-                      {{ categoryTreeGetters.getName(childCategory) }}
+                      {{ categoryTreeGetters.getName(grandChildCategory) }}
                     </NuxtLink>
                   </li>
                 </ul>
               </li>
             </ul>
-
-            <ul
-              v-if="navlink.subLinks && openSubMenus[navlink.label]"
-              class="subnav-list flex flex-col items-center mt-2"
-            >
-              <li v-for="sublink in navlink.subLinks" :key="sublink.label">
-                <NuxtLink :to="sublink.link" class="nav-list-link text-white hover:text-secondary-500 uppercase">{{
-                  sublink.label
-                }}</NuxtLink>
-              </li>
-            </ul>
           </li>
         </ul>
       </div>
+
+      <!-- Footer links for mobile menu -->
       <ul
         class="absolute bottom-5 flex justify-between flex-wrap gap-4 max-w-[80vw] w-full sm:max-w-sm mx-auto mt-16 pt-4 border-t border-white border-opacity-60 xl:hidden text-white"
       >
@@ -304,71 +300,8 @@
       </ul>
     </div>
 
-    <!-- <div v-if="viewport.isLessThan('lg')">
-      <UiButton
-        variant="tertiary"
-        class="relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 rounded-md md:hidden"
-        square
-        data-testid="open-languageselect-button"
-        :aria-label="t('languageSelector')"
-        @click="toggleLanguageSelect()"
-        :disabled="(showConfigurationDrawer && isEditing) || (showConfigurationDrawer && disableActions)"
-      >
-        <SfIconLanguage />
-      </UiButton>
-      <UiButton
-        variant="tertiary"
-        class="relative text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-700 rounded-md md:hidden"
-        square
-        @click="searchModalOpen"
-        :aria-label="t('openSearchModalButtonLabel')"
-      >
-        <SfIconSearch />
-      </UiButton>
-    </div> -->
     <slot />
   </MegaMenu>
-  <!-- <LanguageSelector /> -->
-  <!-- <UiModal
-    v-if="viewport.isGreaterOrEquals('md') && isAuthenticationOpen"
-    v-model="isAuthenticationOpen"
-    tag="section"
-    class="h-full md:w-[500px] md:h-fit m-0 p-0 overflow-y-auto"
-  >
-    <header>
-      <UiButton
-        :aria-label="$t('closeDialog')"
-        square
-        variant="tertiary"
-        class="absolute right-2 top-2"
-        @click="closeAuthentication"
-      >
-        <SfIconClose />
-      </UiButton>
-    </header>
-    <LoginComponent v-if="isLogin" @change-view="isLogin = false" @logged-in="closeAuthentication" :is-modal="true" />
-    <Register v-else @change-view="isLogin = true" @registered="closeAuthentication" :is-modal="true" />
-  </UiModal>
-
-  <NuxtLazyHydrate v-if="viewport.isLessThan('lg')" when-idle>
-    <SfModal
-      v-model="isSearchModalOpen"
-      class="w-full h-full z-50"
-      tag="section"
-      role="dialog"
-      aria-labelledby="search-modal-title"
-    >
-      <header class="mb-4">
-        <UiButton square variant="tertiary" class="absolute right-4 top-2" @click="searchModalClose">
-          <SfIconClose class="text-neutral-500" />
-        </UiButton>
-        <h3 id="search-modal-title" class="absolute left-6 top-4 font-bold typography-headline-4 mb-4">
-          {{ t('search') }}
-        </h3>
-      </header>
-      <UiSearch :close="searchModalClose" />
-    </SfModal>
-  </NuxtLazyHydrate> -->
   <LazyConfigurationDrawer v-if="showConfigurationDrawer" />
 </template>
 
@@ -404,6 +337,7 @@ defineProps({
 });
 
 const hoveredCategoryId = ref<number | null>(null);
+const hoveredSubCategoryId = ref<number | null>(null);
 const expandedCategories = ref<{ [key: number]: boolean }>({});
 
 const toggleCategory = (categoryId: number) => {
@@ -486,41 +420,12 @@ const navigateToLogin = () => {
   }
 };
 
-const navLinks = [
-  {
-    label: 'GFL',
-    link: null,
-    subLinks: [
-      {
-        label: 'LIVESTREAM',
-        link: 'https://sportdeutschland.tv/kiel-baltic-hurricanes',
-      },
-      {
-        label: 'GFL',
-        link: null,
-      },
-    ],
-  },
-  {
-    label: 'TICKETS',
-    link: localePath(paths.tickets),
-  },
-  {
-    label: 'FANSHOP',
-    link: null,
-  },
-  {
-    label: 'Sponsoring',
-    link: null,
-  },
-];
+const openSubMenus = ref<Record<number, boolean>>({});
 
-const openSubMenus = ref<Record<string, boolean>>({});
-
-const toggleSubMenu = (label: string) => {
+const toggleSubMenu = (categoryId: number) => {
   openSubMenus.value = {
     ...openSubMenus.value,
-    [label]: !openSubMenus.value[label],
+    [categoryId]: !openSubMenus.value[categoryId],
   };
 };
 

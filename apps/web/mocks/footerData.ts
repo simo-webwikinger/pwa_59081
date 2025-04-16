@@ -1,5 +1,35 @@
 export const categories = [
   {
+    key: 'Fans',
+    subcategories: [
+      // {
+      //   key: 'Fanshop',
+      //   link: '/fanshop',
+      // },
+      {
+        key: 'Tickets',
+        link: '/tickets',
+      },
+      {
+        key: 'GFL',
+        link: 'https://sportdeutschland.tv/kiel-baltic-hurricanes',
+      },
+      {
+        key: 'Sponsoring',
+        link: '/sponsoring',
+      },
+    ],
+  },
+  {
+    key: 'Contact',
+    subcategories: [
+      {
+        key: 'Kontakt',
+        link: '/contact',
+      },
+    ],
+  },
+  {
     key: 'legal',
     subcategories: [
       {
@@ -20,24 +50,6 @@ export const categories = [
       //   key: 'cancellationForm',
       //   link: paths.cancellationForm,
       // },
-    ],
-  },
-  {
-    key: 'Contact',
-    subcategories: [
-      {
-        key: 'Kontakt',
-        link: '/contact',
-      },
-    ],
-  },
-  {
-    key: 'Fans',
-    subcategories: [
-      {
-        key: 'Fanshop',
-        link: '/fanshop',
-      },
     ],
   },
 ];
