@@ -26,7 +26,7 @@
           rel="noopener noreferrer"
           class="block w-12 sm:w-16 transition-opacity hover:opacity-60"
         >
-          <NuxtImg src="/images/gfl_logo_22.svg" alt="GFL logo" width="64" height="34" class="w-64 h-34" />
+          <img src="/images/gfl_logo_22.svg" alt="GFL logo" width="64" height="34" class="w-64 h-34" />
         </a>
       </div>
       <slot name="nav"> </slot>

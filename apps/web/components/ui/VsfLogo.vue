@@ -1,29 +1,5 @@
 <template>
-  <picture>
-    <template v-if="imageExtension === 'svg'">
-      <NuxtImg
-        :src="imagePath"
-        :alt="`${{ storeName }} logo`"
-        class="w-72"
-        width="286"
-        height="86"
-        ref="logo"
-        preload
-      />
-    </template>
-    <template v-else>
-      <img
-        id="logo"
-        :src="imagePath"
-        :alt="`${{ storeName }} logo`"
-        :width="imgWidth"
-        :height="imgHeight"
-        class="max-h-[100px] max-w-[200px]"
-        ref="logo"
-        preload
-      />
-    </template>
-  </picture>
+  <img src="/images/logo.svg" :alt="`${storeName} logo`" class="w-72" width="286" height="86" ref="logo" />
 </template>
 
 <script setup lang="ts">
