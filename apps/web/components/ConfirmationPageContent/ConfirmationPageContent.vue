@@ -12,7 +12,7 @@
 
     <div class="flex flex-col md:flex-row w-full md:w-auto lg:w-3/4 flex-wrap gap-x-6">
       <div class="flex-1">
-        <div class="border border-1 border-neutral-200 rounded bg-neutral-100 p-4 w-full my-4 text-sm">
+        <div class="border border-1 border-neutral-200 rounded bg-primary-100 text-black p-4 w-full my-4 text-sm">
           <OrderDetails :order="order" />
         </div>
 
@@ -28,12 +28,12 @@
           </div>
         </div>
 
-        <div class="border border-1 border-neutral-200 rounded bg-neutral-100 p-4 w-full my-4 text-sm">
+        <div class="border border-1 border-neutral-200 rounded bg-primary-100 text-black p-4 w-full my-4 text-sm">
           <OrderTotals :order="order" />
         </div>
       </div>
       <div class="flex-1">
-        <div class="border border-1 border-neutral-200 rounded bg-neutral-100 p-4 w-full my-4 text-sm">
+        <div class="border border-1 border-neutral-200 rounded bg-primary-100 text-black p-4 w-full my-4 text-sm">
           <OrderShippingSummary :order="order" />
           <OrderPaymentSummary :order="order" />
           <OrderBankDetails v-if="bankDetails" :bank-details="bankDetails" />
