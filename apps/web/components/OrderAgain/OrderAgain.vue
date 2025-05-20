@@ -1,7 +1,11 @@
 <template>
-  <UiModal v-model="isOpen" tag="section" class="w-full h-full md:h-fit m-0 p-0 lg:w-[1000px] overflow-y-auto">
+  <UiModal
+    v-model="isOpen"
+    tag="section"
+    class="w-full h-full md:h-fit m-0 p-0 lg:w-[1000px] overflow-y-auto text-black"
+  >
     <header>
-      <h2 class="font-bold font-headings text-lg leading-6 md:text-2xl">
+      <h2 class="font-bold font-headings text-lg leading-6 md:text-2xl text-primary-500">
         <span>{{ t('account.ordersAndReturns.orderAgain.heading') }}</span>
       </h2>
       <div v-if="!loading">
