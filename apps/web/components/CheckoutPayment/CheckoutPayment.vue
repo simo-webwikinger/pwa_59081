@@ -1,6 +1,6 @@
 <template>
   <fieldset class="md:mx-4 my-6" data-testid="checkout-payment">
-    <legend class="text-neutral-900 text-lg font-bold mb-4">{{ t('checkoutPayment.heading') }}</legend>
+    <legend class="text-white text-lg font-bold mb-4">{{ t('checkoutPayment.heading') }}</legend>
     <div v-if="paymentMethods?.list && paymentMethods.list.length > 0" class="grid gap-4 grid-cols-2">
       <label v-for="paymentMethod in paymentMethods.list" :key="paymentMethod.id" class="relative">
         <input

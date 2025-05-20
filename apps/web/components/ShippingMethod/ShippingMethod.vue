@@ -1,6 +1,6 @@
 <template>
   <div data-testid="shipping-method" class="md:px-4 my-6">
-    <h3 class="text-neutral-900 text-lg font-bold">{{ t('shippingMethod.heading') }}</h3>
+    <h3 class="text-white text-lg font-bold">{{ t('shippingMethod.heading') }}</h3>
     <div class="mt-4">
       <ul
         v-if="shippingMethods && shippingMethods.length > 0"

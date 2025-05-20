@@ -1,7 +1,7 @@
 <template>
   <div data-testid="contact-information" class="md:px-4 py-6">
     <div class="flex justify-between items-center">
-      <h2 class="text-neutral-900 text-lg font-bold">{{ $t('contactInfo.heading') }}</h2>
+      <h2 class="text-white text-lg font-bold">{{ $t('contactInfo.heading') }}</h2>
       <UiButton v-if="!disabled && cart.customerEmail && !isAuthorized" @click="open" variant="secondary">
         <SfIconBase v-if="isMobile" viewBox="0 0 34 40" class="w-6 h-6 pt-[3px]">
           <path :d="penPath" />
