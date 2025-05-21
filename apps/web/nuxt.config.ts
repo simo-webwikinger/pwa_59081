@@ -49,6 +49,7 @@ export default defineNuxtConfig({
       turnstileSiteKey: process.env?.TURNSTILESITEKEY ?? '',
       useAvif: process.env?.IMAGEAVIF === 'true',
       useWebp: process.env?.IMAGEWEBP === 'true',
+      maintenanceMode: process.env?.MAINTENANCE_MODE === 'true',
       validateReturnReasons: process.env.VALIDATE_RETURN_REASONS === '1',
       enableQuickCheckoutTimer: process.env.ENABLE_QUICK_CHECKOUT_TIMER === '1',
       showConfigurationDrawer: process.env.SHOW_CONFIGURATION_DRAWER === '1',

@@ -13,6 +13,7 @@
     <UiNavbarBottom v-if="viewport.isLessThan('lg')" class="z-20" />
     <Cookiebar />
     <PreviewMode />
+    <MaintenanceOverlay v-if="!isPreview" />
     <NuxtLazyHydrate when-visible>
       <UiFooter />
     </NuxtLazyHydrate>
