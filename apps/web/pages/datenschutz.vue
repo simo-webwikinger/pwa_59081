@@ -11,7 +11,7 @@
         </h1>
       </div>
     </template>
-    <div class="text-white">
+    <div class="text-white mx-12">
       <section class="relative overflow-hidden">
         <div class="relative container mx-auto px-4">
           <h2 class="rich-text uppercase">Disclaimer</h2>

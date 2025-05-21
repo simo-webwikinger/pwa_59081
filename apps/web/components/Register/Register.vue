@@ -89,7 +89,7 @@
           class="peer"
         />
         <label
-          class="ml-3 text-base text-neutral-900 cursor-pointer peer-disabled:text-disabled-900 select-none"
+          class="ml-3 text-base text-neutral-100 cursor-pointer peer-disabled:text-disabled-900 select-none"
           for="privacyPolicy"
         >
           <i18n-t keypath="form.privacyPolicyLabel" scope="global">
@@ -97,7 +97,7 @@
               <SfLink
                 :href="localePath(paths.privacyPolicy)"
                 target="_blank"
-                class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
+                class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 !text-primary-400 hover:!text-primary-500 rounded"
               >
                 {{ t('privacyPolicy') }}
               </SfLink>
@@ -128,7 +128,11 @@
 
       <div v-if="changeableView" class="text-center">
         <div class="my-5 font-bold">{{ t('auth.signup.alreadyHaveAccount') }}</div>
-        <SfLink @click="$emit('change-view')" variant="primary" class="cursor-pointer">
+        <SfLink
+          @click="$emit('change-view')"
+          variant="primary"
+          class="cursor-pointer !text-primary-400 hover:!text-primary-500"
+        >
           {{ t('auth.signup.logInLinkLabel') }}
         </SfLink>
       </div>

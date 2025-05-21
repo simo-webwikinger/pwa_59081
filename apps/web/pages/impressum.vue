@@ -11,7 +11,7 @@
         <p class="py-4">Angaben nach §6 Teledienstgesetz und Medienstaatsvertrag</p>
       </div>
     </template>
-    <section class="relative overflow-hidden text-white">
+    <section class="relative overflow-hidden text-white mx-12">
       <div class="relative container mx-auto px-4">
         <h2 class="rich-text uppercase">Geschäftsstelle</h2>
         <div>
@@ -42,7 +42,7 @@
       </div>
     </section>
 
-    <section class="relative overflow-hidden z-10 my-8 text-white">
+    <section class="relative overflow-hidden z-10 my-8 text-white mx-12">
       <div class="relative container mx-auto px-4">
         <h2 class="rich-text uppercase">Design, Neos-Administration &amp; Hosting</h2>
         <div>

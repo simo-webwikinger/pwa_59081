@@ -78,18 +78,17 @@
               </div>
             </li>
 
-            <!-- Additional static navigation items if needed
             <li class="relative group nav-list-item w-full px-4">
               <NuxtLink
-                :to="localePath(paths.tickets)"
+                :to="localePath(paths.faq)"
                 :class="[
                   'nav-list-link inline-flex items-center uppercase font-bold mb-4 text-white xl:py-1 border-b-4 border-transparent hover:border-secondary-500 xl:mb-0 xl:group-hover:border-secondary-500 xl:group-focus:border-secondary-500 xl:whitespace-nowrap',
-                  { '!border-secondary-500': route.path === localePath(paths.tickets) },
+                  { '!border-secondary-500': route.path === localePath(paths.faq) },
                 ]"
               >
-                TICKETS
+                FAQ
               </NuxtLink>
-            </li> -->
+            </li>
           </ul>
         </div>
 
@@ -284,6 +283,14 @@
                 </ul>
               </li>
             </ul>
+          </li>
+          <li>
+            <NuxtLink
+              :to="localePath(paths.faq)"
+              class="nav-list-link text-white hover:text-secondary-500 uppercase font-bold"
+            >
+              FAQ
+            </NuxtLink>
           </li>
         </ul>
       </div>

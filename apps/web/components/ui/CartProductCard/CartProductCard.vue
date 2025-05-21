@@ -19,7 +19,7 @@
         :tag="NuxtLink"
         :to="path"
         variant="secondary"
-        class="w-fit no-underline typography-text-sm sm:typography-text-lg"
+        class="w-fit no-underline typography-text-sm sm:typography-text-lg text-white hover:text-primary-400"
       >
         {{ cartGetters.getItemName(cartItem) }}
       </SfLink>
@@ -40,7 +40,7 @@
           />
         </div>
         <div class="my-2">
-          <ul class="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-700">
+          <ul class="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-200">
             <li v-for="attribute in cartGetters.getItemAttributes(cartItem)" :key="attribute.name">
               <span class="mr-1">{{ attribute.label }}:</span>
               <span class="font-medium">{{ attribute.value }}</span>

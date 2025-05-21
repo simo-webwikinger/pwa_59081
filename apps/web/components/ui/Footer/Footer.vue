@@ -271,7 +271,7 @@
               rel="noopener noreferrer"
               class="inline-block w-36 mb-4 lg:mb-6 transition-opacity hover:opacity-60"
             >
-              <NuxtImg src="/images/gfl_logo_22.svg" alt="GFL logo" width="144" height="77" class="w-64 h-34" />
+              <img src="/images/gfl_logo_22.svg" alt="GFL logo" width="144" height="77" class="w-64 h-34" />
             </a>
             <div class="mb-12 text-lg font-black uppercase leading-none">Member of the German Football League</div>
             <div class="text-xs">

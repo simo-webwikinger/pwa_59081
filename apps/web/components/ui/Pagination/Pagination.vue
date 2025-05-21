@@ -84,7 +84,7 @@
                 'hover:bg-primary-50 hover:text-primary-800 active:bg-primary-50 active:text-primary-700': !disabled,
               },
               {
-                '!text-primary-500 hover:!text-primary-800 active:!text-primary-700': pagination.selectedPage === page,
+                '!text-white hover:!text-primary-800 active:!text-primary-700': pagination.selectedPage === page,
               },
             ]"
             :aria-current="pagination.selectedPage === page"

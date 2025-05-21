@@ -15,7 +15,7 @@
           @click.prevent="updateShippingMethod(shippingProviderGetters.getParcelServicePresetId(method))"
           tag="label"
           children-tag="div"
-          class="border rounded-md items-start select-none"
+          class="border border-white rounded-md items-start select-none bg-primary-700 text-white hover:bg-primary-600 transition-colors"
         >
           <template #prefix>
             <SfRadio
@@ -25,15 +25,17 @@
                 shippingProviderGetters.getParcelServicePresetId(method)
               "
               :value="shippingProviderGetters.getParcelServicePresetId(method)"
-              class="flex items-center"
+              class="flex items-center !bg-primary-500 !border-primary-500"
             />
           </template>
           <div class="flex items-center flex-row gap-2">
-            <span>{{ shippingProviderGetters.getShippingMethodName(method) }}</span>
-            <span class="ml-auto">{{ getShippingAmount(shippingProviderGetters.getShippingAmount(method)) }}</span>
+            <span class="font-medium">{{ shippingProviderGetters.getShippingMethodName(method) }}</span>
+            <span class="ml-auto font-bold text-secondary-400">{{
+              getShippingAmount(shippingProviderGetters.getShippingAmount(method))
+            }}</span>
           </div>
           <div v-if="getDeliveryDays(shippingProviderGetters.getParcelServicePresetId(method))">
-            <span class="text-sm">
+            <span class="text-sm text-white/80">
               {{
                 t('shippingMethod.maxDeliveryDays', {
                   days: getDeliveryDays(shippingProviderGetters.getParcelServicePresetId(method)),

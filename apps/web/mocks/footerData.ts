@@ -46,10 +46,10 @@ export const categories = [
         key: 'Nutzungsbedingungen',
         link: '/Nutzungsbedingungen',
       },
-      // {
-      //   key: 'cancellationForm',
-      //   link: paths.cancellationForm,
-      // },
+      {
+        key: 'FAQ',
+        link: paths.faq,
+      },
     ],
   },
 ];

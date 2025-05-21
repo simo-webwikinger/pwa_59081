@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="border border-neutral-200 p-1 rounded-md hover:shadow-lg flex flex-col text-white"
-    data-testid="product-card"
-  >
+  <div class="border border-neutral-200 rounded-md hover:shadow-lg flex flex-col text-white" data-testid="product-card">
     <div class="relative overflow-hidden bg-transparent">
       <UiBadges
         :class="['absolute', isFromWishlist ? 'mx-2' : 'm-2']"
@@ -27,7 +24,7 @@
           :preload="priority || false"
           :width="getWidth()"
           :height="getHeight()"
-          class="object-cover rounded-md aspect-square w-full"
+          class="object-cover aspect-square w-full"
           data-testid="image-slot"
         />
       </SfLink>

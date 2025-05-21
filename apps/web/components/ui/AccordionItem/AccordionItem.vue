@@ -4,7 +4,7 @@
       <slot name="summary">
         <p>{{ summary }}</p>
       </slot>
-      <SfIconChevronLeft :class="['text-primary-500', modelValue ? 'rotate-90' : '-rotate-90']" />
+      <SfIconChevronLeft :class="['text-primary-100', modelValue ? 'rotate-90' : '-rotate-90']" />
     </template>
     <div class="py-2 px-4">
       <slot />

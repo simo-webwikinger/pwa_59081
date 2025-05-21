@@ -34,7 +34,7 @@
         {{ orderGetters.getItemName(orderItem) }}
       </SfLink>
       <div class="my-2" v-if="!orderGetters.isBundleComponents(orderItem)">
-        <ul class="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-700">
+        <ul class="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-200">
           <li v-for="(attribute, index) in orderGetters.getOrderAttributes(orderItem)" :key="index">
             <span class="mr-1" v-if="orderGetters.getOrderItemAttributeName(attribute)">
               {{ orderGetters.getOrderItemAttributeName(attribute) }}:

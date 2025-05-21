@@ -9,13 +9,13 @@
         class="inline-block mr-2"
         data-testid="checkout-terms-checkbox"
       />
-      <label for="terms-checkbox" class="select-none">
+      <label for="terms-checkbox" class="select-none text-white">
         <i18n-t keypath="termsInfo" scope="global">
           <template #terms>
             <SfLink
               :href="localePath(paths.termsAndConditions)"
               target="_blank"
-              class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
+              class="text-secondary-500 hover:text-secondary-300 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded font-medium"
             >
               {{ $t('termsAndConditions') }}
             </SfLink>
@@ -25,7 +25,7 @@
             <SfLink
               :href="localePath(paths.cancellationRights)"
               target="_blank"
-              class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
+              class="text-secondary-500 hover:text-secondary-300 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded font-medium"
             >
               {{ $t('cancellationRights') }}
             </SfLink>
@@ -35,7 +35,7 @@
             <SfLink
               :href="localePath(paths.privacyPolicy)"
               target="_blank"
-              class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded"
+              class="text-secondary-500 hover:text-secondary-300 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded font-medium"
             >
               {{ $t('privacyPolicy') }}
             </SfLink>
@@ -43,8 +43,8 @@
         </i18n-t>
       </label>
     </div>
-    <div class="text-sm text-neutral-500 mt-1 ml-7">* {{ $t('contact.form.asterixHint') }}</div>
-    <div v-if="showErrors" class="text-negative-700 text-sm">{{ $t('termsRequired') }}</div>
+    <div class="text-sm text-white/70 mt-1 ml-7">* {{ $t('contact.form.asterixHint') }}</div>
+    <div v-if="showErrors" class="text-negative-700 text-sm font-medium">{{ $t('termsRequired') }}</div>
   </div>
 </template>
 

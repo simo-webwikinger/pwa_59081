@@ -11,15 +11,16 @@
             <h1 class="font-bold typography-headline-4" data-testid="product-name">
               {{ productGetters.getName(product) }}
             </h1>
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center min-w-max">
               <WishlistButton
                 :product="product"
                 :quantity="quantitySelectorValue"
                 :square="viewport.isLessThan('lg')"
                 :class="{
-                  'bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full':
+                  'bottom-0 !text-primary-500 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full':
                     viewport.isLessThan('lg'),
                 }"
+                class="text-white"
               >
                 <template v-if="viewport.isGreaterOrEquals('lg')">
                   {{
@@ -61,7 +62,7 @@
             <UiButton
               variant="tertiary"
               @click="scrollToReviews"
-              class="ml-2 text-xs text-neutral-500 cursor-pointer"
+              class="ml-2 text-xs text-white cursor-pointer"
               data-testid="show-reviews"
             >
               {{ t('showAllReviews') }}
@@ -122,7 +123,7 @@
                   <SfLink
                     :href="localePath(paths.shipping)"
                     target="_blank"
-                    class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded text-primary-300 hover:!text-primary-400"
+                    class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded text-primary-100 hover:!text-primary-400"
                   >
                     {{ $t('delivery') }}
                   </SfLink>

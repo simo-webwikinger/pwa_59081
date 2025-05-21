@@ -32,9 +32,11 @@
       />
       <ErrorMessage as="span" name="lastName" class="flex text-negative-700 text-sm mt-2" />
     </label>
-
     <div class="md:col-span-3">
-      <SfLink @click="hasShippingCompany = !hasShippingCompany" class="select-none hover:cursor-pointer">
+      <SfLink
+        @click="hasShippingCompany = !hasShippingCompany"
+        class="select-none hover:cursor-pointer text-secondary-500 hover:text-secondary-700"
+      >
         {{ !hasShippingCompany ? $t('form.addCompany') : $t('form.removeCompany') }}
       </SfLink>
     </div>

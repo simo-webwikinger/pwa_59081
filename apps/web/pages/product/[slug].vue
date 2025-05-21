@@ -30,11 +30,11 @@
           </div>
         </section>
       </div>
-      <section>
+      <section class="my-10">
         <NuxtLazyHydrate when-visible>
           <ProductRecommendedProducts
             :category-id="productGetters.getCategoryIds(product)[0]"
-            class="mx-4 mt-28 mb-20"
+            class="mx-4"
           ></ProductRecommendedProducts>
         </NuxtLazyHydrate>
       </section>
