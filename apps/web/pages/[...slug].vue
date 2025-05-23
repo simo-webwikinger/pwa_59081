@@ -96,7 +96,7 @@ const keywordsContent = computed((): string =>
 );
 
 useHead({
-  title: headTitle,
+  title: categoryGetters.getCategoryName(productsCatalog.value?.category),
   meta: [
     { name: 'description', content: descriptionContent },
     { name: 'keywords', content: keywordsContent },

@@ -106,7 +106,7 @@
               <SfIconFavorite />
               <SfBadge
                 :content="wishlistItemIds.length"
-                class="outline outline-primary-500 bg-white !text-neutral-900 hover:scale-95 group-hover:outline-primary-600 group-active:outline-primary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
+                class="outline outline-secondary-600 bg-white hover:scale-95 !text-neutral-900 group-hover:outline-secondary-700 group-active:outline-secondary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
                 data-testid="wishlist-badge"
                 placement="top-right"
                 :max="99"
@@ -125,7 +125,7 @@
               <SfIconShoppingCart />
               <SfBadge
                 :content="cartItemsCount"
-                class="outline outline-primary-500 bg-white hover:scale-95 !text-neutral-900 group-hover:outline-primary-600 group-active:outline-primary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
+                class="outline outline-secondary-600 bg-white hover:scale-95 !text-neutral-900 group-hover:outline-secondary-700 group-active:outline-secondary-700 flex justify-center items-center text-xs min-w-[16px] min-h-[16px]"
                 data-testid="cart-badge"
                 placement="top-right"
                 :max="99"
@@ -218,7 +218,7 @@
           variant="tertiary"
           square
           :aria-label="t('closeMenu')"
-          class="nav-toggle absolute top-24 right-3 md:top-10 md:right-4 text-3xl hover:text-secondary-500 text-white xl:hidden"
+          class="nav-toggle absolute top-24 right-4 md:top-24 md:right-6 text-3xl hover:text-secondary-500 text-white xl:hidden"
           @click="closeMenu()"
         >
           <SfIconClose class="text-white" />
@@ -297,7 +297,7 @@
 
       <!-- Footer links for mobile menu -->
       <ul
-        class="absolute bottom-5 flex justify-between flex-wrap gap-4 max-w-[80vw] w-full sm:max-w-sm mx-auto mt-16 pt-4 border-t border-white border-opacity-60 xl:hidden text-white"
+        class="absolute bottom-20 flex justify-between flex-wrap gap-4 max-w-[80vw] w-full sm:max-w-sm mx-auto mt-16 pt-4 border-t border-white border-opacity-60 xl:hidden text-white"
       >
         <li class="text-xs uppercase opacity-60 hover:opacity-100"><NuxtLink to="/contact">Kontakt</NuxtLink></li>
         <li class="text-xs uppercase opacity-60 hover:opacity-100"><NuxtLink to="/impressum">Impressum</NuxtLink></li>

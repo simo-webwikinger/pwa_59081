@@ -123,7 +123,7 @@
                   <SfLink
                     :href="localePath(paths.shipping)"
                     target="_blank"
-                    class="focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded text-primary-100 hover:!text-primary-400"
+                    class="focus:outline !text-secondary-500 focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded text-primary-100 hover:!text-primary-400"
                   >
                     {{ $t('delivery') }}
                   </SfLink>

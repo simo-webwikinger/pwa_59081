@@ -1,5 +1,5 @@
 <template>
-  <footer class="overflow-hidden bg-black text-white md:max-h-[90vh]" data-testid="footer">
+  <footer class="overflow-hidden bg-black text-white md:max-h-[105vh] lg:max-h-[100vh]" data-testid="footer">
     <div
       class="max-w-10xl mx-auto flex flex-col lg:grid lg:grid-cols-5 lg:grid-rows-7 gap-3 lg:transform skew-negative-10"
       data-testid="section-top"
@@ -161,6 +161,40 @@
                     class="relative max-w-full max-h-full z-10 transform skew-p-10"
                     src="/images/Dm_Logo.avif"
                     alt="dm Logo"
+                  /></div
+              ></a>
+            </li>
+            <li class="max-w-[10rem]">
+              <a
+                href="https://www.pringles.com/"
+                class="block relative h-24 transform group w-40 skew-n-10"
+                title="Pringles"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><div
+                  class="absolute p-4 inset-0 flex justify-center items-center bg-white group-hover:-translate-y-4 transition-transform overflow-hidden"
+                >
+                  <img
+                    class="relative max-w-full max-h-full z-10 transform skew-p-10"
+                    src="/images/Pringles-logo.png"
+                    alt="pringles Logo"
+                  /></div
+              ></a>
+            </li>
+            <li class="max-w-[10rem]">
+              <a
+                href="https://web-wikinger.de/"
+                class="block relative h-24 transform group w-40 skew-n-10"
+                title="Web-Wikinger"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><div
+                  class="absolute inset-0 flex justify-center items-center bg-white group-hover:-translate-y-4 transition-transform overflow-hidden"
+                >
+                  <img
+                    class="relative max-w-full max-h-full z-10 transform skew-p-10"
+                    src="/images/web-wikinger.png"
+                    alt="web wikinger Logo"
                   /></div
               ></a>
             </li>

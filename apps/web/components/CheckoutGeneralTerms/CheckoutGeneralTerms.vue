@@ -6,7 +6,7 @@
         @update:model-value="(event) => setCheckboxValue(Boolean(event))"
         :invalid="showErrors"
         id="terms-checkbox"
-        class="inline-block mr-2"
+        class="inline-block mr-2 !text-secondary-500 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded hover:!text-secondary-300 hover:focus:outline-secondary-600 hover:!border-secondary-600"
         data-testid="checkout-terms-checkbox"
       />
       <label for="terms-checkbox" class="select-none text-white">

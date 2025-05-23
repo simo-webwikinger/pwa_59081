@@ -19,7 +19,7 @@
         :tag="NuxtLink"
         :to="path"
         variant="secondary"
-        class="w-fit no-underline typography-text-sm sm:typography-text-lg text-white hover:text-primary-400"
+        class="w-fit no-underline typography-text-sm sm:typography-text-lg text-white hover:text-secondary-600"
       >
         {{ cartGetters.getItemName(cartItem) }}
       </SfLink>

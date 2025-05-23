@@ -34,13 +34,15 @@
               :key="index"
               class="category-card group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-80"
             >
-              <div class="absolute inset-0 bg-gradient-to-t from-pitch-black to-transparent opacity-60 z-10"></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-pitch-black to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-70 z-[1]"
+              ></div>
               <img
                 :src="category.image"
                 :alt="category.name"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div class="absolute bottom-0 left-0 w-full p-6 z-20">
+              <div class="absolute bottom-0 left-0 w-full p-6 z-[2]">
                 <h3 class="text-xl font-bold text-white mb-2">{{ category.name }}</h3>
                 <NuxtLink
                   :to="category.link"
@@ -163,6 +165,20 @@ const categoryShowcase = [
     link: '/t-shirts',
   },
 ];
+
+useHead({
+  title: 'Startseite',
+  meta: [
+    {
+      name: 'description',
+      content: 'Shop the latest Kiel Baltic Hurricanes merchandise and show your team spirit!',
+    },
+    {
+      name: 'keywords',
+      content: 'Kiel Baltic Hurricanes, merchandise, accessories, caps, hoodies, t-shirts',
+    },
+  ],
+});
 
 fetchPageTemplate();
 </script>

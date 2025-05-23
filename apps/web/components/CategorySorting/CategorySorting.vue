@@ -1,7 +1,7 @@
 <template>
   <div class="w-full md:max-w-[376px]" data-testid="category-sorting">
     <h6
-      class="bg-primary-700 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest select-none"
+      class="bg-secondary-500 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest select-none"
     >
       {{ $t('sortBy') }}
     </h6>
@@ -11,7 +11,7 @@
         :aria-label="$t('sortBy')"
         id="sortBy"
         @change="sortingChanged"
-        class="text-white [&>option]:!bg-primary-100 [&>option:hover]:!bg-primary-500"
+        class="text-white [&>option]:!bg-primary-100 [&>option:hover]:!bg-primary-500 ring-primary-500 focus:ring-primary-500 focus:border-primary-500 hover:!ring-primary-300"
       >
         <option
           v-for="{ value, label } in options"

@@ -4,7 +4,7 @@
     class="category-tree"
   >
     <h6
-      class="py-2 px-4 mb-4 bg-primary-700 typography-headline-6 font-bold text-white uppercase tracking-widest md:rounded-md select-none"
+      class="py-2 px-4 mb-4 bg-secondary-500 typography-headline-6 font-bold text-white uppercase tracking-widest md:rounded-md select-none"
       data-testid="category-tree"
     >
       {{ $t('category') }}

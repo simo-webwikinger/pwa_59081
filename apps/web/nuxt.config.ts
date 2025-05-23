@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     asyncContext: true,
   },
   appConfig: {
-    titleSuffix: process.env.STORENAME || ' ',
+    titleSuffix: process.env.STORENAME || 'Baltic Hurricanes',
     fallbackCurrency: 'EUR',
   },
   imports: {
@@ -62,7 +62,7 @@ export default defineNuxtConfig({
       headerLogo: process.env.LOGO || '/images/logo.svg',
       homepageCategoryId: Number(process.env.HOMEPAGE) ?? null,
       shippingTextCategoryId: Number(process.env.SHIPPINGTEXT) ?? null,
-      storename: 'Startseite - Baltic-Hurricanes',
+      storename: 'Baltic Hurricanes',
       noCache: process.env.NO_CACHE || '',
       configId: process.env.CONFIG_ID || '',
     },
@@ -195,8 +195,8 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
     },
     manifest: {
-      name: 'plentyshop PWA',
-      short_name: 'plentyshopPWA',
+      name: 'Baltic Hurricanes',
+      short_name: 'Baltic Hurricanes',
       theme_color: '#0C7992',
       icons: [
         {
