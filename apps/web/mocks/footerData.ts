@@ -47,6 +47,16 @@ export const categories = [
         link: '/Nutzungsbedingungen',
       },
       {
+        // AGB
+        key: 'AGB',
+        link: '/terms-and-conditions',
+      },
+      {
+        // cancellation rights
+        key: 'Widerrufsrecht',
+        link: '/cancellation-rights',
+      },
+      {
         key: 'FAQ',
         link: paths.faq,
       },

@@ -46,7 +46,7 @@
           <div class="font-bold text-primary-700 font-headings md:text-lg text-center mt-5">
             {{ t('orderConfirmation.saveOrderToAccount') }}
           </div>
-          <div class="font-bold text-center mt-3">{{ t('orderConfirmation.createAccountForBenefits') }}</div>
+          <div class="font-bold text-black text-center mt-3">{{ t('orderConfirmation.createAccountForBenefits') }}</div>
           <UiButton variant="primary" class="mt-5 mb-5" @click="isAuthenticationOpen = true">
             {{ t('orderConfirmation.signUp') }}
           </UiButton>
