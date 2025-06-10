@@ -6,7 +6,7 @@
     data-testid="shipping-address-form"
   >
     <label>
-      <UiFormLabel>
+      <UiFormLabel class="text-white">
         {{ hasShippingCompany ? $t('form.firstNameLabel') : `${$t('form.firstNameLabel')} ${$t('form.required')}` }}
       </UiFormLabel>
       <SfInput
@@ -20,7 +20,7 @@
     </label>
 
     <label class="md:col-span-2">
-      <UiFormLabel>
+      <UiFormLabel class="text-white">
         {{ hasShippingCompany ? $t('form.lastNameLabel') : `${$t('form.lastNameLabel')} ${$t('form.required')}` }}
       </UiFormLabel>
       <SfInput
@@ -42,7 +42,7 @@
     </div>
 
     <label v-if="hasShippingCompany">
-      <UiFormLabel>{{ $t('form.companyLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.companyLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfInput
         name="companyName"
         autocomplete="company"
@@ -54,7 +54,7 @@
     </label>
 
     <label v-if="hasShippingCompany" class="md:col-span-2">
-      <UiFormLabel>{{ $t('form.vatIdLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.vatIdLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfInput
         autocomplete="vatNumber"
         v-model="vatNumber"
@@ -65,7 +65,7 @@
     </label>
 
     <label class="md:col-span-2">
-      <UiFormLabel>{{ $t('form.streetNameLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.streetNameLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfInput
         name="streetName"
         autocomplete="address-line1"
@@ -77,7 +77,7 @@
     </label>
 
     <label>
-      <UiFormLabel>{{ $t('form.streetNumberLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.streetNumberLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfInput
         name="streetNumber"
         autocomplete="address-line2"
@@ -89,7 +89,7 @@
     </label>
 
     <label>
-      <UiFormLabel>{{ $t('form.postalCodeLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.postalCodeLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfInput
         name="zipCode"
         autocomplete="postal-code"
@@ -101,7 +101,7 @@
     </label>
 
     <label class="md:col-span-2">
-      <UiFormLabel>{{ $t('form.cityLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.cityLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfInput
         name="city"
         autocomplete="address-level2"
@@ -113,7 +113,7 @@
     </label>
 
     <label class="md:col-span-3">
-      <UiFormLabel>{{ $t('form.countryLabel') }} {{ $t('form.required') }}</UiFormLabel>
+      <UiFormLabel class="text-white">{{ $t('form.countryLabel') }} {{ $t('form.required') }}</UiFormLabel>
       <SfSelect
         name="country"
         v-model="country"

@@ -5,7 +5,7 @@
         {{ isShipping ? t('shipping.heading') : t('billing.heading') }}
       </h2>
 
-      <div class="flex mt-4 sm:justify-center sm:mt-0">
+      <div class="flex mt-4 sm:justify-center sm:mt-0 text-white">
         <AddressSelect
           v-if="!editing && !showNewForm"
           :type="type"

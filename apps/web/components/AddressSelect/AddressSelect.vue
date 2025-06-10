@@ -18,7 +18,7 @@
       <h3 id="address-modal-title" class="text-neutral-900 text-lg md:text-2xl font-bold">
         {{ t('pickSavedAddress') }}
       </h3>
-      <h1 class="my-2 mb-6 font-semibold">{{ t('pickSavedAddressSubtitle') }}</h1>
+      <h1 class="my-2 mb-6 font-semibold text-black">{{ t('pickSavedAddressSubtitle') }}</h1>
     </header>
 
     <Address

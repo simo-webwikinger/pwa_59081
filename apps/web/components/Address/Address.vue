@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ 'border border-primary-500': isSelected }"
-    class="px-4 py-1 mb-4 rounded-md"
+    class="px-4 py-1 mb-4 rounded-md text-gray-700"
     data-testid="address-data"
   >
     <div class="my-2 flex justify-between">

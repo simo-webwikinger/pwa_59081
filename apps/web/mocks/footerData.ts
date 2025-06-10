@@ -14,10 +14,6 @@ export const categories = [
         key: 'GFL',
         link: 'https://sportdeutschland.tv/kiel-baltic-hurricanes',
       },
-      {
-        key: 'Sponsoring',
-        link: '/sponsoring',
-      },
     ],
   },
   {

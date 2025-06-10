@@ -198,6 +198,23 @@
                   /></div
               ></a>
             </li>
+            <li class="max-w-[10rem]">
+              <a
+                href="https://www.rewe-digital.com/"
+                class="block relative h-24 transform group w-40 skew-n-10"
+                title="REWEdigital"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><div
+                  class="absolute inset-0 flex justify-center items-center bg-white group-hover:-translate-y-4 transition-transform overflow-hidden"
+                >
+                  <img
+                    class="relative max-w-full max-h-full z-10 transform skew-p-10 p-3"
+                    src="/images/REWEdigital-Logo-rgb_lemon-blue.svg"
+                    alt="REWEdigital Logo"
+                  /></div
+              ></a>
+            </li>
           </ul>
         </div>
       </div>
